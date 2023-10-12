@@ -1,4 +1,3 @@
-{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,20 +28,16 @@
         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
       </ul>
     </header>
+    <img src="{{carro.avatar.url}}" alt="">
+    <h1>Modelo: {{carro.modelo}}</h1>
+    <h2>Marca: {{carro.marca}}</h2>
+    <h2>Ano: {{carro.ano}}</h2>
+    <h2>Cor: {{carro.cor}}</h2>
+    <h2>Preço: {{carro.preco}}</h2>
+    <h2>Cambio: {{carro.cambio}}</h2>
 
-    <h1>Lista de carros a venda</h1>
-    {% bootstrap_messages %}
-    <ul class="list-group my-3">
-      {% for carro in carros %}
-      <li class="list-group-item">
-        <a href="{% url 'detalhar' carro.id %}">{{ carro.marca }} {{carro.modelo}} {{carro.ano}}</a>
-      </li>
-      {% endfor %}
-    </ul>
-
-    <a class="btn btn-primary" href="{% url 'adicionar' %}" role="button">Adicionar Carro</a>
-
-
+    <a class="btn btn-primary mt-3" href="{% url 'atualizar' carro.id %}" role="button">Atualizar Carro</a>
+    <a class="btn btn-danger mt-3" href="{% url 'deletar' carro.id %}" role="button">Remover Carro</a>
   </div>
 
 </body>

@@ -9,6 +9,7 @@ class Carro(models.Model):
   cor = models.CharField(max_length=200)
   km_rodados = models.PositiveBigIntegerField(default=0)
   foto = models.ImageField(upload_to='avatares', blank=True, null=True)
+  preco = models.PositiveBigIntegerField()
 
   manual = "ma"
   automatico = "au"

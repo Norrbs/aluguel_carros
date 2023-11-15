@@ -11,7 +11,7 @@ class Carro(models.Model):
   foto = models.ImageField(upload_to='avatares', blank=True, null=True)
   preco = models.PositiveBigIntegerField()
 
-  manual = "ma"
+  manual = "mn"
   automatico = "au"
   cambio_escolhas = [
     (manual,"Manual"),

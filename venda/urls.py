@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import listar, detalhar, adicionar, atualizar, deletar
+from .views import ListarTemplateView, DetalharTemplateView, AdicionarTemplateView, AtualizarTemplateView, DeletarTemplateView
 
 urlpatterns = [
-    path('', listar, name='listar'),
-    path('<int:id>', detalhar, name='detalhar'),
-    path('adicionar/', adicionar, name='adicionar'),
-    path('atualizar/<int:id>', atualizar, name='atualizar'),
-    path('deletar/<int:id>', deletar, name='deletar')
+    path('', ListarTemplateView.as_view(), name='listar'),
+    path('<int:pk>', DetalharTemplateView.as_view(), name='detalhar'),
+    path('adicionar/', AdicionarTemplateView.as_view(), name='adicionar'),
+    path('atualizar/<int:pk>', AtualizarTemplateView.as_view(), name='atualizar'),
+    path('deletar/<int:pk>', DeletarTemplateView.as_view(), name='deletar')
 ]

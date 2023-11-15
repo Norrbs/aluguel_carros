@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,12 +28,12 @@
         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
       </ul>
     </header>
-    <img src="{{carro.avatar.url}}" alt="">
-    <h1>Modelo: {{carro.modelo}}</h1>
+    <img src="{{ carro.foto.url }}" alt="" width="400">
+    <h1>Modelo: {{carro.modelo|title}}</h1>
     <h2>Marca: {{carro.marca}}</h2>
     <h2>Ano: {{carro.ano}}</h2>
     <h2>Cor: {{carro.cor}}</h2>
-    <h2>Preço: {{carro.preco}}</h2>
+    <h2>Preço: {{carro.preco }}</h2>
     <h2>Cambio: {{carro.cambio}}</h2>
 
     <a class="btn btn-primary mt-3" href="{% url 'atualizar' carro.id %}" role="button">Atualizar Carro</a>

@@ -2,3 +2,7 @@ venv
 db.sqlite3
 media
 staticfiles
+*.log
+*.pot
+*.pyc
+__pycache__/

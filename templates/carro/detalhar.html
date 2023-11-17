@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% block title %}{{carro.modelo}}{% endblock %}
+
+{% block content %}
+<section class="mt-5">
+  <img src="{{ carro.foto.url }}" alt="" width="400">
+  <h1>Modelo: {{carro.modelo|title}}</h1>
+  <h2>Marca: {{carro.marca}}</h2>
+  <h2>Ano: {{carro.ano}}</h2>
+  <h2>Cor: {{carro.cor}}</h2>
+  <h2>Preço: R${{carro.preco }}</h2>
+  <h2>Cambio: {{carro.cambio}}</h2>
+</section>
+
+<a class="btn btn-primary mt-3" href="{% url 'atualizar' carro.id %}" role="button">Atualizar Carro</a>
+<a class="btn btn-danger mt-3" href="{% url 'deletar' carro.id %}" role="button">Remover Carro</a>
+{% endblock %}

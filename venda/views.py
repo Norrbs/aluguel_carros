@@ -15,7 +15,7 @@ class HomeTemplateView(TemplateView):
 
 class ListarTemplateView(ListView):
   model = Carro
-  template_name = 'listar.html'
+  template_name = 'carro/listar.html'
   context_object_name = 'carros'
   ordering = 'modelo'
 
@@ -26,7 +26,7 @@ class ListarTemplateView(ListView):
 
 class DetalharTemplateView(DetailView):
   model = Carro
-  template_name = 'detalhar.html'
+  template_name = 'carro/detalhar.html'
   context_object_name = 'carro'
 
 # def detalhar(request,id):
@@ -35,7 +35,7 @@ class DetalharTemplateView(DetailView):
 
 class AdicionarTemplateView(CreateView):
   model = Carro
-  template_name = 'adicionar.html'
+  template_name = 'carro/adicionar.html'
   context_object_name = 'carro'
   form_class = CarroForm
 
@@ -56,7 +56,7 @@ class AdicionarTemplateView(CreateView):
 
 class AtualizarTemplateView(UpdateView):
   model = Carro
-  template_name = 'atualizar.html'
+  template_name = 'carro/atualizar.html'
   context_object_name = 'carro'
   form_class = CarroForm
 
@@ -80,6 +80,11 @@ class AtualizarTemplateView(UpdateView):
 
 class DeletarTemplateView(DeleteView):
     model=Carro
+    template_name='carro/carro_confirm_delete.html'
+
+    def get_success_url(self):
+        messages.add_message(self.request, messages.SUCCESS, "Carro deletado com sucesso!")
+        return reverse('listar')
 
   #  def get_success_url(self):
   #       messages.add_message(self.request, messages.SUCCESS, "Carro deletado com sucesso!")

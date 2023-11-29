@@ -7,7 +7,7 @@
 <h1>Lista de carros a venda</h1>
 {% bootstrap_messages %}
 <div class="row g-3">
-  {% for carro in carros %}
+  {% for carro in page_obj %}
   <div class="col-md-4">
     <div class="card mb-3" style="width: 18rem;">
       <img src="{{carro.foto.url}}" class="card-img-top" alt="...">
@@ -20,7 +20,7 @@
   </div>
   {% endfor %}
 </div>
-
+{% bootstrap_pagination page_obj %}
 
 <a class="btn btn-primary" href="{% url 'adicionar' %}" role="button">Adicionar Carro</a>
 {% endblock %}

@@ -21,6 +21,7 @@ class ListarTemplateView(ListView):
   template_name = 'carro/listar.html'
   context_object_name = 'carros'
   ordering = 'modelo'
+  paginate_by=3
 
 
 # def listar(request):
